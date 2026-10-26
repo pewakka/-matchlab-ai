@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0e14" />
+  <meta name="description" content="MatchLab AI: ricerca sportiva con intelligenza artificiale e fonti consultabili." />
+  <title>MatchLab AI — Ricerca sportiva</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="MatchLab AI home"><span class="brand-mark">M</span><span>MATCHLAB <b>AI</b></span></a>
+      <span id="status" class="status"><i></i> Verifica servizio…</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span></span> SPORT DATA · WEB RESEARCH</div>
+        <h1>Le tue domande.<br><em>I dati sullo sport.</em></h1>
+        <p class="subtitle">Fai una domanda. MatchLab cerca sul web, confronta le informazioni disponibili e ti mostra le fonti.</p>
+
+        <div class="sport-tabs" role="group" aria-label="Seleziona sport">
+          <button class="sport active" data-sport="all" aria-pressed="true">Tutti</button>
+          <button class="sport" data-sport="football" aria-pressed="false">⚽ Calcio</button>
+          <button class="sport" data-sport="nba" aria-pressed="false">🏀 NBA</button>
+          <button class="sport" data-sport="tennis" aria-pressed="false">🎾 Tennis</button>
+        </div>
+
+        <form id="search-form" class="search-card">
+          <label class="sr-only" for="question">La tua domanda sportiva</label>
+          <textarea id="question" maxlength="1800" rows="3" placeholder="Es. Quali giocatori NBA hanno realizzato più triple nelle ultime 5 partite?" required></textarea>
+          <div class="search-bottom">
+            <span class="hint">Le risposte dipendono dai dati reperibili online.</span>
+            <button id="search-button" type="submit"><span>Cerca</span><b>↗</b></button>
+          </div>
+        </form>
+
+        <div class="examples">
+          <span class="examples-title">PROVA A CHIEDERE</span>
+          <button class="example" data-question="Per le prossime partite NBA, confronta le medie recenti di triple, rimbalzi e assist dei giocatori più interessanti. Indica periodo e fonti.">🏀 Triple, rimbalzi e assist NBA</button>
+          <button class="example" data-question="Analizza le partite di calcio di oggi: confronta forma recente, gol e statistiche di tiri e calci d'angolo dove disponibili. Cita le fonti.">⚽ Statistiche delle partite</button>
+          <button class="example" data-question="Confronta gli ultimi risultati e i precedenti dei prossimi incontri ATP e WTA, tenendo conto della superficie quando il dato è disponibile.">🎾 Forma e precedenti tennis</button>
+        </div>
+      </section>
+
+      <section id="result-section" class="result-section hidden" aria-live="polite">
+        <div class="result-heading"><div><span class="eyebrow">MATCHLAB REPORT</span><h2>Risultati della ricerca</h2></div><button id="clear-button" class="clear-button">Nuova ricerca</button></div>
+        <div id="loading" class="loading hidden"><div class="spinner"></div><div><b>Sto cercando le informazioni</b><p>Verifico le fonti e preparo il confronto. Potrebbe volerci un po'.</p></div></div>
+        <div id="error" class="error hidden"></div>
+        <article id="answer" class="answer hidden"></article>
+        <div id="sources-wrap" class="sources-wrap hidden"><h3>Fonti consultate</h3><div id="sources" class="sources"></div></div>
+        <p id="timestamp" class="timestamp"></p>
+      </section>
+
+      <section class="disclaimer"><span>ⓘ</span><p>MatchLab AI è uno strumento di ricerca, non una garanzia di risultato. Le statistiche possono essere incomplete o non aggiornate. Verifica sempre le fonti originali.</p></section>
+    </main>
+    <footer><span>MATCHLAB AI</span><span>Ricerca sportiva con fonti</span></footer>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
